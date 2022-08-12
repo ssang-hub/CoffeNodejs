@@ -1,0 +1,36 @@
+<div class="content">
+  <form action="/admin/createProduct" method="post" enctype="multipart/form-data">
+
+    <div class="mb-3">
+      <label class="form-label">Tên Sản Phâm</label>
+      <input type="text" class="form-control" placeholder="Tên Sản Phâm" name="name">
+    </div>
+    
+    <div class="mb-3">
+      <label class="form-label">Giá</label>
+      <input type="text" class="form-control" name="price" placeholder="Giá">
+    </div>
+    
+    <div class="mb-3 description">
+      <label class="form-label">Mô tả</label>
+      <input type="text" class="form-control" name="description" placeholder="Mô tả">
+    </div>
+    
+    <div class="selectType">
+      <label class="form-label">Loại Sản Phâm</label>
+      <select class="form-select" aria-label="Default select example" name="type">
+        <option selected>Open this select menu</option>
+        <% for(let i=0; i<data.length; i++) { %>
+          <option value="<%= data[i].idtype %>"><%= data[i].nametype %></option>
+          <% } %>
+        </select>
+      </div>
+
+    <div class="mb-3">
+        <label>Hình ảnh</label>
+        <input type="file" class="fileInput" name="image">
+      </div>
+      
+      <button type="submit" class="btn btn-primary btn-addProduct">Thêm Sản Phâm</button>
+  </form>
+</div>

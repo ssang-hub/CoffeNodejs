@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <style>
+        @media (min-width: 1025px) {
+            .h-custom {
+            height: 100vh !important;
+            }
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+</html>
+    <body>
+        <section class="h-100 h-custom" style="background-color: #eee;">
+            <div class="container py-5 h-100">
+            <div class="row d-flex justify-content-center align-items-center h-100">
+                <div class="col">
+                <div class="card">
+                    <div class="card-body p-4">
+        
+                    <div class="row">
+        
+                        <div class="col-lg-7">
+                            <h5 class="mb-3"><a href="/" class="text-body"><i
+                                    class="fas fa-long-arrow-alt-left me-2"></i>Quay lại</a></h5>
+                            <hr>
+            
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div>
+                                <p class="mb-1">Giỏ hàng</p>
+                                <p class="mb-0">Bạn có <%=data.length%> sản phẩm trong giỏ</p>
+                                </div>
+                                <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkbox-all">
+                                        <label class="form-check-label" for="checkbox-all">
+                                          Chọn tất cả
+                                        </label>
+                                </div>
+                                
+
+                            </div>
+                            
+                            
+                            <!-- for product in cart -->
+                            <% for(let i=0; i<data.length; i++){%>
+                                <div class="d-flex align-items-center">
+                                    <div class="form-check" style="margin-bottom: 30px;">
+                                        <input class="form-check-input" type="checkbox"
+                                         value="<%=data[i].idp%>-<%=data[i].size%>-<%=data[i].number%>-<%=data[i].note%>-<%=data[i].id%>-<%=data[i].price%>" name="productdata[]" form="order-from">
+                                    </div>
+                                    <%-include('productItem', {data: data[i]})%>
+                                </div>
+                            <%}%>
+                        </div>
+
+                        <!-- user -->
+                        <div class="col-lg-5">
+                            <%-include('user', {user: user}) -%>
+                        </div>
+        
+                    </div>
+        
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <input type="hidden" form="form-delete-product" id="cart-delete-input" name="productId" value="">
+            <form action="/createOrder" method="post" id="order-from"></form>
+            <form  method="post" action="/deleteProductInCart?_method=DELETE" id="form-delete-product"></form>
+        </section>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', ()=>{
+            var checkboxAll = $('#checkbox-all')
+            var productCheckBox = $('input[name="productdata[]"]')
+            var submit_cart = $('.submit-cart')
+            var order_from = $('#order-from')
+            var delete_from = $('#form-delete-product')
+            var delete_cart = $('.delete-cart')
+            var date_order = $('#date-order')
+            var d = new Date()
+
+            date_order.text(`${d.getDate()}/${d.getMonth()+1}/${d.getFullYear()}`)
+            // checkboxAll click
+            checkboxAll.change(()=>{
+                var checkedAll = ($('#checkbox-all').prop('checked'))
+                productCheckBox.prop('checked', checkedAll)
+                statusCartCheckbtn()
+            })
+
+            // check all checkbox
+            productCheckBox.change(()=>{
+                var ischeckAll = productCheckBox.length === $('input[name="productdata[]"]:checked').length
+                checkboxAll.prop('checked', ischeckAll)
+                statusCartCheckbtn()
+            })
+
+            // submit enable and disabled
+            submit_cart.click((e)=>{
+                e.preventDefault()
+
+                var submitable = !submit_cart.hasClass('disabled')
+                if(submitable){
+                    order_from.submit()
+                }
+            })
+
+            // click enable and disabled
+            function statusCartCheckbtn(){
+                var status_btn = $('input[name="productdata[]"]:checked').length
+                if(status_btn){
+                    submit_cart.removeClass('disabled')
+                }
+                else{
+                    submit_cart.addClass('disabled')
+
+                }
+            }
+
+            delete_cart.click(function(e){
+                $('#cart-delete-input').val($(this).attr('data-cartId'))
+                delete_from.submit()
+            })            
+
+        })
+    </script>
+    
+    <%- include('../../bootstrapScript/script') -%>
+    </body>
+
+  

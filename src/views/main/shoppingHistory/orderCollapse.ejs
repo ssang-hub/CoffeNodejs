@@ -1,0 +1,28 @@
+<div id="accordion">
+    <div class="card">
+        <div class="card-header ml- row" id="headingOne" style="height: 80px">
+            <h5 class="col-2">#<%=order.id%></h5>
+            <h5 class="col-3"><%=order.date%></h5>
+            <h5 class="col-3"><%=order.status%></h5>
+            <h5 class="col-2">#<%=order.id%></h5>
+
+            <h5 class="col-2 mb-0">
+                <button
+                    type="button"
+                    class="btn btn-outline-info"
+                    data-toggle="collapse"
+                    data-target="#index<%=index%>"
+                    aria-expanded="true"
+                    aria-controls="index<%=index%>"
+                    style="position: absolute; right: 10%"
+                >
+                    Chi tiết đơn hàng
+                </button>
+            </h5>
+        </div>
+
+        <div id="index<%=index%>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body"><% for(const el of data) { %> <%- include('orderProduct', {data:el}) %> <% } %></div>
+        </div>
+    </div>
+</div>

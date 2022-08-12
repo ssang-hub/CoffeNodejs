@@ -1,0 +1,34 @@
+<%- include('../header/header') -%>
+<body>
+    <div class="nav-container" style="z-index: 1"><%- include('../navbar/navbar') -%></div>
+    <div class="slider-menu" style="height: 500px">
+        <img src="/images/<%=name%>.jpg" alt="" style="width: 100%; height: 100%" />
+        <div class="black-background"></div>
+    </div>
+    <div class="content-website" style="margin-top: 500px">
+        <div class="product-title">
+            <h1 style="text-align: center">Menu</h1>
+            <div class="lineborder text-center">
+                <img src="/images/line-under-heading.png" alt="lineborder" />
+            </div>
+        </div>
+
+        <div class="product-container container">
+            <div class="row">
+                <div class="col-xl-24 col-lg-3 col-md-4 col-sm-12">
+                    <div class="menu-sidebar"><%- include('../sidebar/sidebar', {name: name}) %></div>
+                </div>
+                <div class="col-xl-96 col-lg-9 col-md-8 col-sm-12">
+                    <div class="item-quantity-bar mb-3">Hiển thị <%=data.length%> sản phẩm</div>
+                    <div class="row">
+                        <% for(let j=0; j < data.length; j++) { %>
+                        <div class="col-xl-4 col-lg-5 col-md-6 col-sm-6 p-2"><%- include('../product/product', {data: data[j]}); %></div>
+                        <% } %> <%- include('../modal-overlay/modal') %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/javascript/siteEvent.js"></script>
+<%- include('../../bootstrapScript/script') -%> <%- include('../footer/footer') -%>

@@ -1,0 +1,35 @@
+
+<%- include('../layouts/header') -%>
+<%- include('../layouts/sidebar') -%>
+<div class="content-admin"> 
+    
+    <% if (link == 'createProduct') {%>
+        <%- include('../product/createProduct') %>
+    <%}%>
+
+    <% if (link == 'createPosts') {%>
+        <%- include('../posts/createposts') %>
+    <%}%>
+
+    <% if (link == 'createNews') {%>
+        <%- include('../product/createProduct') %>
+    <%}%>
+
+    <% if (link == 'editProduct') {%>
+        <%- include('../product/editproduct', {data:data}) %>
+    <%}%>
+
+    <% if (link == 'editPosts') {%>
+        <%- include('../product/createProduct') %>
+    <%}%>
+
+    <% if (link == 'editNews') {%>
+        <%- include('../product/createProduct') %>
+    <%}%>
+
+</div>
+
+
+
+<script src="/javascript/adminEvent.js"></script>
+<%- include('../../bootstrapScript/script') -%>

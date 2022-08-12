@@ -1,0 +1,29 @@
+{
+    "env": {
+        "es6": true,
+        "node": true,
+        "browser": true
+    },
+    "extends": ["prettier"],
+    "plugins": ["prettier"],
+    "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "rules": {
+        "prettier/prettier": [
+            {
+                "arrowParens": "avoid",
+                "semi": false,
+                "trailingComma": "none",
+                "endOfLine": "lf",
+                "tabWidth": 2,
+                "useTabs": false,
+                "singleQuote": true,
+                "printWidth": 80,
+                "jsxSingleQuote": false
+            }
+        ],
+        "no-console": "warn"
+    }
+}

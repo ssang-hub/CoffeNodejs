@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.sidebar{
+    display: inline-block;
+    position: relative;
+}
+.nav{
+    position: relative;
+    width: 300px;
+    border-right: 1px solid white;
+}
+.nav-item{
+    font-size: 20px;
+    margin-top: 10px;
+}
+.nav-link{
+    width: 280px;
+    position: relative;
+}
+.nav-item__content{
+    position: absolute;
+    left: 30%;
+    top: 15%;
+    width: 800px;
+}
+.nav-item__content label{
+    color: white;
+    font-size: 18px;
+    font-weight: 200;
+}
+
+.content-admin{
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    width: 60%;
+}
+.content{
+    width: 100%;
+}
+
+.selectType{
+    margin-bottom: 2rem;
+}
+.form-select{
+    margin-left: 25px;
+    margin-top: 20px;
+}
+.product-name{
+
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+.btn-addProduct{
+    margin-top: 60px;
+}
+.nav-admin{
+    position: relative;
+}
+.btn-logout{
+    position: absolute;
+    right: 0;
+    margin-right: 30px;
+}
+.btn-logout:hover a{
+    color: beige;
+}
+.Sidebar-content-disable{
+    display: none;
+}
+.Sidebar-content-enable{
+    display: block;
+}
+.nav-pills{
+    border-right: 1px solid white;
+}
+
+.card{
+    height: 300px;
+    box-shadow: 0 4px 4px #00000040;
+    opacity: 0.85;
+    transition: ease .5s;
+}
+.card:hover{
+    opacity: 1;
+    transform: translateY(-10px);
+
+}
+.card img{
+    height: 10rem;
+    width: 100%;
+}
+.posts-image{
+    height: 100%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+}

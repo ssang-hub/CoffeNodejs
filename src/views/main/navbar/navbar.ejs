@@ -1,0 +1,68 @@
+<nav class="navbar">
+  <div class="logo">
+    <a href="/">
+      <img src="/images/logo.jpg" class="logo-image" alt="logo">
+    </a> 
+  </div>
+  <ul class="nav-list">
+    <li class="nav-item">
+      <a href="/page/1">TRANG CHỦ</a>
+    </li>
+    <li class="nav-item dropdown-btn">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+        MENU
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <li><a class="dropdown-item" href="/menu/cofe">CÀ PHÊ</a></li>
+        <li><a class="dropdown-item" href="/menu/tea">TRÀ SỮA</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="/menu/food">ĐÔ ĂN</a></li>
+      </ul>
+    </li>
+    <li class="nav-item">
+      <a href="">TIN TỨC</a>
+    </li>
+    <li class="nav-item">
+      <a href="">GIỚI THIỆU</a>
+    </li>
+    <li class="nav-item">
+      <a href="#footer">LIÊN HỆ</a>
+    </li>
+  </ul>
+  <%if(!currentUser){%>
+      <div class="login">
+        <a href="/login" style="color: white; font:20px bold">
+            Đăng Nhập
+        </a>
+      </div>
+  <%} else{%>
+
+    
+      <div class="login">
+        <a href="/cart">
+            <i class="fa-solid fa-bag-shopping"></i>
+        </a>
+
+        <div class="dropdown show ml-3" style="display: inline-block;">
+          <a class="" href="#"  id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fa-solid fa-user"></i>
+          </a>
+        
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="/order">Chi tiết đơn hàng</a>
+            <a class="dropdown-item" href="/shoppingHistory">Lịch sử mua hàng</a>
+            <hr>
+            <a class="dropdown-item" href="/information">Thông tin cá nhân</a>
+          </div>
+        </div>
+
+      </div>
+
+
+      <a href="/logout">
+        <button type="button" class="btn btn-outline-success">
+        Đăng Xuất
+        </button>
+      </a>
+  <%}%>
+</nav>

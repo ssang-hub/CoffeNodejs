@@ -1,0 +1,55 @@
+<%- include('header') -%>
+<body>
+    
+    <section class="vh-100" style="background-color: #508bfc;">
+        <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+            <div class="card shadow-2-strong" style="border-radius: 1rem; width: 800px; transform: translateX(-20%);">
+                <div class="card-body p-5 text-center">
+    
+                <h3 class="mb-5">Đăng Ký</h3>
+                    <form action="/register" method="post">
+
+                        <div class="form-outline mb-4">
+                            <input type="text" class="form-control form-control-lg" name="fullname" placeholder="Họ và tên"/>
+                        </div>
+            
+                        <div class="form-outline mb-4">
+                            <input type="text" class="form-control form-control-lg" name="uname" placeholder="Tài Khoản"/>
+                        </div>
+            
+                        <div class="form-outline mb-4">
+                            <input type="password" id="typePasswordX-2" class="form-control form-control-lg" name="pw" placeholder="Mật Khâu"/>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="text" class="form-control form-control-lg" name="address" placeholder="Địa Chỉ"/>
+                        </div>
+                        
+                        <div class="form-outline mb-4">
+                            <input type="text" class="form-control form-control-lg" name="phone" placeholder="Số Điện thoại"/>
+                        </div>
+
+                        <div class="form-outline mb-4">
+                            <input type="email" class="form-control form-control-lg" name="email" placeholder="Email"/>
+                        </div>
+                        <!-- <div class="form-outline mb-4">
+                            <label for="image-file">Hinh anh</label>
+                            <input type="file" class="form-control-lg" id="image-file" name="image" style="width: 70%"/>
+                        </div> -->
+
+                        <button class="btn btn-primary btn-lg btn-block" type="submit">Đăng Ký</button>
+                    </form>
+    
+                <hr class="my-4">
+    
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+</body>
+<%- include('../bootstrapScript/script') -%>

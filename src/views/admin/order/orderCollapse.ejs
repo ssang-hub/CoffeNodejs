@@ -1,0 +1,43 @@
+<div id="accordion">
+    <div class="card">
+        <div class="card-header ml-" id="headingOne">
+            <h5 class="mb-0">
+                <button
+                    type="button"
+                    class="btn btn-outline-info"
+                    data-toggle="collapse"
+                    data-target="#index<%=index%>"
+                    aria-expanded="true"
+                    aria-controls="index<%=index%>"
+                >
+                    Chi tiết đơn hàng
+                </button>
+                <button
+                    type="button"
+                    class="btn delete-order-btn btn-outline-danger ml-5"
+                    data-toggle="modal"
+                    data-target="#ModalCenter"
+                    data-idOrder="<%=orders.id%>"
+                    data-Status="<%=orders.status%>"
+                >
+                    Hủy đơn hàng
+                </button>
+
+                <button
+                    type="button"
+                    class="btn delete-order-btn btn-outline-success ml-5"
+                    data-toggle="modal"
+                    data-target="#confirmDelivered"
+                    data-idOrder="<%=orders.id%>"
+                    data-Status="<%=orders.status%>"
+                >
+                    Đã nhận hàng
+                </button>
+            </h5>
+        </div>
+
+        <div id="index<%=index%>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body"><% for(const el of data) { %> <%- include('orderProduct', {data:el}) %> <% } %></div>
+        </div>
+    </div>
+</div>

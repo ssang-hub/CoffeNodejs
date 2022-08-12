@@ -1,0 +1,42 @@
+<%- include('../header/header') -%>
+<body>
+    <%- include('../navbar/navbar') -%>
+    <%- include('../slider/slider') -%>
+    <div class="content-website">
+
+      <!-- menu -->
+      <%- include('../product/typeproduct') -%>
+
+      <!-- product -->
+      <div class="product-container container">   
+          <p class="typeProduct-title">Sản Phâm</p>
+          <div class="lineborder text-center">
+              <img src="/images/line-under-heading.png" alt="lineborder">
+          </div>
+        <div class="row">
+          <% for(let j=(page-1)*8+0; j < page*8; j++) { %>
+            <% if(j==data.length) { break;%>
+            <% } %>
+            <div class=" col-xl-3 col-lg-4 col-md-6 col-sm-6 p-2">
+              <%- include('../product/product', {data: data[j]}); %>
+            </div>
+          <% } %>  
+        </div>
+        
+        <%- include('pagination', {length: Math.ceil(data.length/8), pageSelect: page}) %>
+
+        <% for(let i = 0; i<postdata.length; i++){ %>
+          <%-include('../posts/posts', {data: postdata[i]})%>
+        <%}%>
+      </div>
+      <%- include('../modal-overlay/modal') %>
+
+      <!-- post -->
+
+    </div>
+    <script src="/javascript/siteEvent.js"></script>
+</body>
+<!-- <script src="/javascript/siteEvent.js"></script> -->
+<%- include('../../bootstrapScript/script') -%>
+<%- include('../footer/footer') -%>
+

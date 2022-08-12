@@ -1,0 +1,28 @@
+<%- include('../header/header') -%>
+<body>
+    <%- include('../navbar/navbar') -%>
+    <%- include('../slider/slider') -%>
+    <div class="content-website">
+      <%- include('../product/typeproduct') -%>
+      <div class="product-container">   
+          <p class="typeProduct-title">Sản Phâm</p>
+          <div class="lineborder text-center">
+              <img src="/images/line-under-heading.png" alt="lineborder">
+          </div>
+        <div class="products">
+          <% for(let j=(page-1)*8+0; j < page*8; j++) { %>
+            <% if(j==data.length) { break;%>
+            <% } %>
+            <%- include('../product/product', {data: data[j]}); %>
+
+          <% } %>  
+          <%- include('pagination', {length: Math.ceil(data.length/8), pageSelect: page}) %>
+        </div>
+      </div>
+    </div>
+    
+</body>
+<script src="/javascript/siteEvent.js"></script>
+<%- include('../../bootstrapScript/script') -%>
+<%- include('../footer/footer') -%>
+

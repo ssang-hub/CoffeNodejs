@@ -1,0 +1,12 @@
+<div>
+    <div class="mb-3" style="background-color: rgba(0,0,0,0);">
+        <%-include('../layouts/sidebar-edit')%>
+    </div>
+    <div class="">
+        <div class="products row">
+            <% for(let i=0;i<10; i++) {%>
+                <%-include('product', {data: data[i]})%>
+            <%}%>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<%- include('../header/header') -%>
+    <form method="post" action="/update-image-user?_method=PUT" enctype="multipart/form-data">
+        <div class="container-information" style="padding: 100px; background-color: gray; height: 100vh;">
+            <div class="row" style="background-color: gray; width: 100%;">
+                
+                
+                        <!-- user tag -->
+                    <div class="col-3"  style="margin: 20px; background-color: white;">
+                        <div class="user">
+                            <div class="fullname"><%= data.fullName%></div>
+                            <div class="username"><%= data.name%></div>
+                            <img src="<%=data.image%>" alt="user-image" class="user-image" style="display: block; position: relative;">
+                            <button type="button" class="btn btn-outline-danger">
+                                    <input type="file" id="upload-image-user" name="image" hidden/>
+                                    <label for="upload-image-user" class="btn-image-user">Chọn File</label>
+                            </button>
+                            <div class="user-note">Vui lòng upload file có dung lượg tối đa 1MB</div>
+                        </div>
+                    </div>
+
+                    <!-- user information detail -->
+                    <div class="col-8" style=" margin: 20px; background-color: white">
+                        <div class="information-detail">
+                            <div class="information-detail-title">
+                                <h1 style="font-weight: bold; padding: 40px 15px;">
+                                    Thông Tin
+                                </h1>
+                            </div>
+                            <hr>
+                            <div class="row" style="margin: 40px 20px ;">
+                                <div class="col">
+                                    <div class="edit-fullname">
+                                        <label class="form-label">Họ và tên</label>
+                                        <input type="text" class="form-control form-control-lg" name="fullName" value="<%= data.fullName%>" required/>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="edit-username">
+                                        <label class="form-label">Tài khoản</label>
+                                        <div class="user-name" style="font-size: 20px"><%= data.name%></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            
+                            <div class="row" style="margin: 40px 20px ;">
+                                <div class="col">
+                                    <div class="edit-address">
+                                        <label class="form-label">Địa chỉ</label>
+                                        <input type="text" class="form-control form-control-lg" name="address" value="<%= data.address%>" required/>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="edit-phoneNumber">
+                                        <label class="form-label">Số điện thoại</label>
+                                        <input type="text" class="form-control form-control-lg" name="phoneNumber" value="<%= data.numberPhone%>" required/>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row" style="margin: 40px 20px ; padding-bottom:30px;">
+                                <div class="col">
+                                    <div class="edit-email">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control form-control-lg" name="email" value="<%= data.email%>" required/>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-outline-success btn-update-information">Cập Nhật</button>
+                </div>
+            </div>
+        </div>
+    </form>
+<%- include('../../bootstrapScript/script') -%>
+                    

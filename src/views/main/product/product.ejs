@@ -1,0 +1,12 @@
+<div class="card product-item" data-name="<%=data.name%>" data-price="<%=data.price%>">
+    <img src="<%=data.image%>" class="card-img-top" alt="..." ">
+    <div class="card-body">
+        <p class="price-text"><%=data.price%>đ</p>
+        <div class="card-content-bottom">
+            <h4 class="product-name"><a href="/product/<%=data.id%>"><%=data.name%></a></h4>
+            <div class="cart-shopping-btn" data-toggle="modal" data-target="#modalProduct" data-id="<%=data.id%>">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<div class="modal fade" id="modalProduct" tabindex="-1" role="dialog" aria-labelledby="modal-center" aria-hidden="true" >
+    <div class="overlay" style="background-color: rgba(0,0,0,.4); height: 100vh;width: 100vw; position: absolute; z-index: 1;"></div>
+    <div class="modal-dialog" style="margin: 15rem auto; z-index: 2;">  
+      <div class="modal-content p-3">
+        <!-- <form action="" > -->
+          <!-- product -->
+          <div class="modal-header" style="padding: 10px; justify-content: flex-start;">
+            <img id="image-product-modal" alt="" style="width: 50%; height: 50%;">
+            <div class="d-flex flex-column mx-5 my-3" >
+              <h4 class="modal-title align-items-center" id="modal-productname" style="color:#682c0e"></h4>
+              <h5 style="color: #c24914; " id="modal-priceproduct"></h5>
+            </div>
+            <button type="button" class="btn btn-outline-danger close " style="left: 95%;margin-top: -25px;" data-dismiss="modal" aria-label="Close">
+              <i class="fa-solid fa-xmark"></i>
+            </button>
+          </div>
+
+          <!-- choose size, add note -->
+          <div class="modal-body row mx-3 d-flex" style="justify-content: space-around;">
+            <div class="picksize">
+              <h5>Chọn size</h5>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="size" value="s" id="flexRadioDefault1" form="addproducttocart">
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Size S
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="size" value="m" id="flexRadioDefault2" checked form="addproducttocart">
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      Size M 
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="radio" name="size" value="l" id="flexRadioDefault3" checked form="addproducttocart">
+                    <label class="form-check-label" for="flexRadioDefault3">
+                      Size L 
+                    </label>
+                  </div>
+            </div>
+
+            <!-- note -->
+            <div class="note-order">
+              <h5>Ghi chú (nếu có)</h5>
+                <input type="text" class="form-control" id="note-order" placeholder="Ghi chú cho quán" name="note" form="addproducttocart">
+            </div>
+          </div>
+
+          <!-- add to cart -->
+          <div class="modal-footer">
+            <h4 style="margin-right: 30px;">Số lượng</h4>
+            <div class="number d-flex">
+              <button class="minus-number p-2 btn btn-outline-danger " onclick="minusQuantity()">
+                <i class="fa-solid fa-minus"></i>
+              </button>
+              <form action="/addproduct" method="post" id="addproducttocart">
+                <input type="text" name="quantity" class="quantity-product py-2" id="quantity-input" style="width: 2.9rem;" value="1">
+                <input type="hidden" name="productid" id="product-id">
+              </form>
+              <button class="plus-number p-2 btn btn-outline-success" onclick="plusQuantity()">
+                <i class="fa-solid fa-plus"></i>
+              </button>
+            </div>
+
+            <button type="submit" class="btn btn-primary" form="addproducttocart">Thêm vào rỏ</button>
+          </div>
+          <!-- </form> -->
+      </div>
+    </div>
+  </div>
+
+
+
